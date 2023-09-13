@@ -21,3 +21,5 @@ class Venta(models.Model):
         return date.today()
     
     fecha = models.DateField(default=today)
+
+    
