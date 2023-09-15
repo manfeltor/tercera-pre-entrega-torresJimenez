@@ -3,16 +3,6 @@
 
 {% block contenido_variable %}
 
-    <form action="{% url 'FormProveedor' %}" method="post">
-
-        {% csrf_token %}
-
-        <p>nombre: <input type="text" name="nom"></p>
-        <p>rubro: <input type="number" name="com"></p>
-        <p>rubro: <input type="number" name="com"></p>
-
-        <button type="submit">Enviar</button>
-
-    </form>
+    
     
 {% endblock contenido_variable %}

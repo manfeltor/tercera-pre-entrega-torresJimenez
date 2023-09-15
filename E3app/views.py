@@ -32,7 +32,7 @@ def formProveedor(req):
         if formulario1.is_valid():
 
             data = formulario1.cleaned_data
-            prv = Proveedor(nombre = data["nom"], comision = data["com"])
+            prv = Proveedor(nombre = data["nom"], rubro = data["rub"], mail = ["mail"])
             prv.save()
 
             return render(req, "proveedor.html")
