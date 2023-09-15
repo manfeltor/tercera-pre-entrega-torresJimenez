@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import date
 
 # Create your models here.
 
@@ -16,10 +15,5 @@ class Cliente(models.Model):
 class Venta(models.Model):
     articulo = models.CharField(max_length=300)
     monto = models.IntegerField()
+    fecha = models.DateTimeField(auto_now_add=True)
 
-    def today(self):
-        return date.today()
-    
-    fecha = models.DateField(default=today)
-
-    
