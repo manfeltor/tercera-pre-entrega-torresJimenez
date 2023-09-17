@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import FormProveedor, FormCliente, FormVenta
 from .models import Proveedor, Cliente, Venta
+from django.db import IntegrityError
 
 # Create your views here.
 
@@ -77,12 +78,16 @@ def formVentas(req):
         if formulario1.is_valid():
 
             data = formulario1.cleaned_data
-            prv = Venta(articulo = data["art"], monto = data["val"], fecha = ["date"])
-            prv.save()
+            ven = Venta(articulo = data["articulo"], monto = data["monto"])
+            ven.save()
 
-        return render (req, "formventa.html", {})
-
+            return render(req, "venta.html")
+        
+        else:
+            print (formulario1)
+            return render(req, "inicio.html")
+    
     else:
         
-        formulario1 = FormProveedor()
-        return render (req, "formventa.html", {})
+        formulario1 = FormVenta()
+        return render(req, "formventa.html", {"formulario1": formulario1})
