@@ -7,15 +7,18 @@ from .models import Proveedor, Cliente, Venta
 
 def proveedor(req):
 
-    return render(req, "proveedor.html")
+    all_instances = Proveedor.objects.all()
+    return render(req, 'venta.html', {'instances': all_instances})
 
 def cliente(req):
 
-    return render(req, "cliente.html")
+    all_instances = Cliente.objects.all()
+    return render(req, 'cliente.html', {'instances': all_instances})
 
 def venta(req):
 
-    return render(req, "venta.html")
+    all_instances = Venta.objects.all()
+    return render(req, 'venta.html', {'instances': all_instances})
 
 def inicio(req):
 
@@ -77,8 +80,8 @@ def formVentas(req):
             prv = Venta(articulo = data["art"], monto = data["val"], fecha = ["date"])
             prv.save()
 
-            return render(req, "venta.html")
-    
+        return render (req, "formventa.html", {})
+
     else:
         
         formulario1 = FormProveedor()

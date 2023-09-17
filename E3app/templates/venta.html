@@ -3,6 +3,15 @@
 
 {% block contenido_variable %}
 
-    
+{% if instances %}
+    <ul>
+        {% for instance in instances %}
+            <li>{{ instance.articulo }} - {{ instance.monto }}- {{ instance.fecha }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No exixten ventas cargadas.</p>
+{% endif %}
+
     
 {% endblock contenido_variable %}

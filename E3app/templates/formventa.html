@@ -3,13 +3,13 @@
 
 {% block contenido_variable %}
 
-    <form action="{% url 'formcliente' %}" method="post">
+    <form action="{% url 'formventas' %}" method="post">
 
         {% csrf_token %}
 
-        <p>nombre: <input type="text" name="nom"></p>
-        <p>ciudad: <input type="text" name="city"></p>
-        <p>activo: <input type="checkbox" name="active"></p>
+        <p>articulo: <input type="text" name="art"></p>
+        <p>monto: <input type="number" name="val"></p>
+        <p>fecha: <input type="date" name="date"></p>
 
         <button type="submit">Enviar</button>
 
