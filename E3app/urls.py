@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import inicio, proveedor, cliente, venta, formProveedor, formCliente, formVentas
+from .views import inicio, proveedor, cliente, venta, formProveedor, formCliente, formVentas, buscar, busquedaProveedor
 
 urlpatterns = [
     path('', inicio, name="inicio"),
@@ -9,5 +9,7 @@ urlpatterns = [
     path('formclientes/', formCliente, name="formcliente"),
     path('ventas/', venta, name="ventas"),
     path('formventas/', formVentas, name="formventas"),
+    path('buscar/', buscar, name="buscar"),
+    path('busquedaproveedor/', busquedaProveedor, name="busquedaproveedor"),
 
-]
+    ]

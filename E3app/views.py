@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from .forms import FormProveedor, FormCliente, FormVenta
 from .models import Proveedor, Cliente, Venta
-from django.db import IntegrityError
 
 # Create your views here.
 
@@ -105,3 +104,23 @@ def formVentas(req):
         
         formulario1 = FormVenta()
         return render(req, "formventa.html")
+    
+def buscar(req: HttpRequest):
+
+        if req.GET["nombre"]:
+
+            prv = req.GET["nombre"]
+            
+            instance = Proveedor.objects.filter(nombre__contains=prv)
+            context = {"instances": instance}
+            return render(req, "resultadosBusqueda.html", context)
+        
+        else:
+
+            return HttpResponse(f"Debe agregar una camada")
+    
+def busquedaProveedor(req):
+
+    return render(req, "busquedaproveedor.html")
+
+

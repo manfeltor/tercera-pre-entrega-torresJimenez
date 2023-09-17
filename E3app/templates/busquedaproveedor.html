@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido_variable %}
+    <p>111111111</p>
+    <form action="{% url 'buscar' %}" method="get">
+
+        {% csrf_token %}
+
+        <p>nombre proveedor: <input type="text" name="nombre"></p>
+
+        <button type="submit"> Enviar </button>
+    </form>
+{% endblock contenido_variable %}

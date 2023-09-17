@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido_variable %}
+
+    <p>Resultados de la busqueda de proveedores</p>
+
+    
+    {% if instances %}        
+        <ul>
+            {% for instance in instances %}
+                <li>{{instance.nombre}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No exixten proveedores con esas caracteristicas.</p>
+    {% endif %}
+
+        
+{% endblock contenido_variable %}
