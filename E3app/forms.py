@@ -6,7 +6,7 @@ class FormProveedor(forms.Form):
     rubro = forms.CharField(max_length=20)
     mail = forms.EmailField(empty_value="vacio")
 
-class FormProveedor(forms.Form):
+class FormCliente(forms.Form):
 
     nombre = forms.CharField(max_length=100)
     ciudad = forms.CharField(max_length=20)

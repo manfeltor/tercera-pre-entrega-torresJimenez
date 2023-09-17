@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block contenido_variable %}
+
+    <form action="{% url 'formcliente' %}" method="post">
+
+        {% csrf_token %}
+
+        <p>nombre: <input type="text" name="nom"></p>
+        <p>ciudad: <input type="text" name="city"></p>
+        <p>activo: <input type="checkbox" name="active"></p>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+    
+{% endblock contenido_variable %}
