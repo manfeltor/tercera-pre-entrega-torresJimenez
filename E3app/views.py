@@ -36,15 +36,21 @@ def formProveedor(req):
         if formulario1.is_valid():
 
             data = formulario1.cleaned_data
-            prv = Proveedor(nombre = data["nom"], rubro = data["rub"], mail = ["mail"])
-            prv.save()
+            ven = Proveedor(nombre = data["nombre"], rubro = data["rubro"], mail = data["mail"])
+            ven.save()
+            instance = Proveedor.objects.all()
+            context = {"instances": instance}
 
-            return render(req, "proveedor.html")
+            return render(req, "proveedor.html", context)
+        
+        else:
+            print (formulario1)
+            return render(req, "inicio.html")
     
     else:
         
         formulario1 = FormProveedor()
-        return render (req, "formproveedor.html", {})
+        return render(req, "formproveedor.html", {"formulario1": formulario1})
     
 def formCliente(req):
 
@@ -57,15 +63,21 @@ def formCliente(req):
         if formulario1.is_valid():
 
             data = formulario1.cleaned_data
-            prv = Cliente(nombre = data["nom"], ciudad = data["city"], activo = ["active"])
-            prv.save()
+            ven = Cliente(nombre = data["nombre"], ciudad = data["ciudad"], activo = data["activo"])
+            ven.save()
+            instance = Cliente.objects.all()
+            context = {"instances": instance}
 
-            return render(req, "cliente.html")
+            return render(req, "cliente.html", context)
+
+        else:
+            print (formulario1)
+            return render(req, "inicio.html")
     
     else:
         
-        formulario1 = FormProveedor()
-        return render (req, "formcliente.html", {})
+        formulario1 = FormCliente()
+        return render(req, "formcliente.html", {"formulario1": formulario1})
     
 def formVentas(req):
 
@@ -80,8 +92,10 @@ def formVentas(req):
             data = formulario1.cleaned_data
             ven = Venta(articulo = data["articulo"], monto = data["monto"])
             ven.save()
+            instance = Venta.objects.all()
+            context = {"instances": instance}
 
-            return render(req, "venta.html")
+            return render(req, "venta.html", context)
         
         else:
             print (formulario1)
@@ -90,4 +104,4 @@ def formVentas(req):
     else:
         
         formulario1 = FormVenta()
-        return render(req, "formventa.html", {"formulario1": formulario1})
+        return render(req, "formventa.html")

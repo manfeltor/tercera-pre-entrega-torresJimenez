@@ -3,6 +3,16 @@
 
 {% block contenido_variable %}
 
-    
+{% if instances %}
+<h2>proveedores hasta ahora</h2>
+    <ul>
+        {% for instance in instances %}
+            <li>nombre: {{ instance.nombre }}, rubro: {{ instance.rubro }}, mail:{{ instance.mail }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No exixten proveedores cargados.</p>
+{% endif %}
+
     
 {% endblock contenido_variable %}

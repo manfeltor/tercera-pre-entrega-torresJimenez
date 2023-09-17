@@ -4,9 +4,10 @@
 {% block contenido_variable %}
 
 {% if instances %}
+<h2>ventas hasta ahora</h2>
     <ul>
         {% for instance in instances %}
-            <li>{{ instance.articulo }} - {{ instance.monto }}- {{ instance.fecha }}</li>
+            <li>articulo: {{ instance.articulo }}, monto: {{ instance.monto }}, fecha de compra:{{ instance.fecha }}</li>
         {% endfor %}
     </ul>
 {% else %}

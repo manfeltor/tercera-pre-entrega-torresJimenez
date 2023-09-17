@@ -3,6 +3,16 @@
 
 {% block contenido_variable %}
 
-   
+{% if instances %}
+<h2>clientes creados</h2>
+    <ul>
+        {% for instance in instances %}
+            <li>nombre: {{ instance.nombre }}, ciudad: {{ instance.ciudad }}, cliente activo:{{ instance.activo }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No exixten clientes cargados.</p>
+{% endif %}
+
     
 {% endblock contenido_variable %}
